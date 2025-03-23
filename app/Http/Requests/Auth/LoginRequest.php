@@ -48,6 +48,19 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        // 取得已登入的使用者
+        $user = Auth::user();
+
+        // 檢查 is_active 欄位
+        if (! $user->is_active) {
+            Auth::logout(); // 強制登出
+
+            throw ValidationException::withMessages([
+                'email' => __('auth.not_actived'), // 回傳帳戶未啟用的錯誤訊息
+            ]);
+        }
+
+        // 清除錯誤嘗試次數
         RateLimiter::clear($this->throttleKey());
     }
 
@@ -80,6 +93,6 @@ class LoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return Str::lower($this->input('email')).'|'.$this->ip();
+        return Str::lower($this->input('email')) . '|' . $this->ip();
     }
 }
