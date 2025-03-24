@@ -24,7 +24,7 @@
           <file-input v-model="form.photo" :error="form.errors.photo" class="pb-8 pr-6 w-full lg:w-1/2" type="file" accept="image/*" label="Photo" />
         </div>
         <div class="flex items-center px-8 py-4 bg-gray-50 border-t border-gray-100">
-          <button v-if="!user.deleted_at" class="text-red-600 hover:underline" tabindex="-1" type="button" @click="destroy">Delete User</button>
+          <button v-if="!user.deleted_at && auth.user.owner" class="text-red-600 hover:underline" tabindex="-1" type="button" @click="destroy">Delete User</button>
           <loading-button :loading="form.processing" class="btn-indigo ml-auto" type="submit">Update User</loading-button>
         </div>
       </form>
@@ -53,6 +53,7 @@ export default {
   },
   layout: Layout,
   props: {
+    auth: Object, // 從父層傳入auth
     user: Object,
   },
   remember: 'form',

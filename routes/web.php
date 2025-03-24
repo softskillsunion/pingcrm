@@ -43,31 +43,31 @@ Route::get('/', [DashboardController::class, 'index'])
 
 Route::get('users', [UsersController::class, 'index'])
     ->name('users')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureowner']);
 
 Route::get('users/create', [UsersController::class, 'create'])
     ->name('users.create')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureowner']);
 
 Route::post('users', [UsersController::class, 'store'])
     ->name('users.store')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureowner']);
 
 Route::get('users/{user}/edit', [UsersController::class, 'edit'])
     ->name('users.edit')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureself']);
 
 Route::put('users/{user}', [UsersController::class, 'update'])
     ->name('users.update')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureself']);
 
 Route::delete('users/{user}', [UsersController::class, 'destroy'])
     ->name('users.destroy')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureowner']);
 
 Route::put('users/{user}/restore', [UsersController::class, 'restore'])
     ->name('users.restore')
-    ->middleware('auth');
+    ->middleware(['auth', 'ensureowner']);
 
 // Organizations
 
