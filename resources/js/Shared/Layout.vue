@@ -20,7 +20,8 @@
             </dropdown>
           </div>
           <div class="md:text-md flex items-center justify-between p-4 w-full text-sm bg-white border-b md:px-12 md:py-0">
-            <div class="mr-4 mt-1">{{ auth.user.account.name }}</div>
+            <!-- <div class="mr-4 mt-1">{{ auth.user.account.name }}</div> -->
+            <div class="mr-4 mt-1"></div>
             <dropdown class="mt-1" placement="bottom-end">
               <template #default>
                 <div class="group flex items-center cursor-pointer select-none">
@@ -33,10 +34,10 @@
               </template>
               <template #dropdown>
                 <div class="mt-2 py-2 text-sm bg-white rounded shadow-xl">
-                  <Link class="block px-6 py-2 hover:text-white hover:bg-indigo-500" :href="`/users/${auth.user.id}/edit`">My Profile</Link>
+                  <Link class="block px-6 py-2 hover:text-white hover:bg-indigo-500" :href="`/users/${auth.user.id}/edit`">個人資料</Link>
                   <!-- <Link class="block px-6 py-2 hover:text-white hover:bg-indigo-500" href="/users">Manage Users{{ auth.user.owner }}</Link> -->
-                  <Link v-if="auth.user.owner" class="block px-6 py-2 hover:text-white hover:bg-indigo-500" href="/users">Manage Users</Link>
-                  <Link class="block px-6 py-2 w-full text-left hover:text-white hover:bg-indigo-500" href="/logout" method="delete" as="button">Logout</Link>
+                  <Link v-if="auth.user.owner" class="block px-6 py-2 hover:text-white hover:bg-indigo-500" href="/users">成員管理</Link>
+                  <Link class="block px-6 py-2 w-full text-left hover:text-white hover:bg-indigo-500" href="/logout" method="delete" as="button">登出</Link>
                 </div>
               </template>
             </dropdown>
