@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,6 +57,12 @@ class User extends Authenticatable
     public function account(): BelongsTo
     {
         return $this->belongsTo(Account::class);
+    }
+
+    // 成員對客戶1對多關聯
+    public function customers(): HasMany
+    {
+        return $this->hasMany(Customer::class);
     }
 
     public function getNameAttribute()

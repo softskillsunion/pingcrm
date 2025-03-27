@@ -12,6 +12,11 @@ class Account extends Model
         return $this->hasMany(User::class);
     }
 
+    public function customers(): HasMany
+    {
+        return $this->hasMany(Customer::class);
+    }
+
     public function organizations(): HasMany
     {
         return $this->hasMany(Organization::class);

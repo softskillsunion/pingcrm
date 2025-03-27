@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
@@ -68,6 +69,36 @@ Route::delete('users/{user}', [UsersController::class, 'destroy'])
 Route::put('users/{user}/restore', [UsersController::class, 'restore'])
     ->name('users.restore')
     ->middleware(['auth', 'ensureowner']);
+
+// Customers
+
+Route::get('customers', [CustomersController::class, 'index'])
+    ->name('customers')
+    ->middleware('auth');
+
+Route::get('customers/create', [CustomersController::class, 'create'])
+    ->name('customers.create')
+    ->middleware('auth');
+
+Route::post('customers', [CustomersController::class, 'store'])
+    ->name('customers.store')
+    ->middleware('auth');
+
+Route::get('customers/{customer}/edit', [CustomersController::class, 'edit'])
+    ->name('customers.edit')
+    ->middleware('auth');
+
+Route::put('customers/{customer}', [CustomersController::class, 'update'])
+    ->name('customers.update')
+    ->middleware('auth');
+
+Route::delete('customers/{customer}', [CustomersController::class, 'destroy'])
+    ->name('customers.destroy')
+    ->middleware('auth');
+
+Route::put('customers/{customer}/restore', [CustomersController::class, 'restore'])
+    ->name('customers.restore')
+    ->middleware('auth');
 
 // Organizations
 
