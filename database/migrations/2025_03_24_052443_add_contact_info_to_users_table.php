@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->decimal('commission_rate', 3, 2)->default(0.04)->after('email'); // 分潤成數
+            $table->decimal('commission_rate', 5, 2)->default(4)->after('email'); // 分潤成數
             $table->string('phone')->nullable()->after('commission_rate');   // 一般電話
             $table->string('mobile')->nullable()->after('phone');  // 行動電話
             $table->string('mailing_address')->nullable()->after('mobile'); // 通訊地址

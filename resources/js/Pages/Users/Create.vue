@@ -10,7 +10,7 @@
         <div class="flex flex-wrap -mb-8 -mr-6 p-8">
           <text-input v-model="form.first_name" :error="form.errors.first_name" class="pb-8 pr-6 w-full lg:w-1/2" label="姓名" />
           <!-- <text-input v-model="form.last_name" :error="form.errors.last_name" class="pb-8 pr-6 w-full lg:w-1/2" label="Last name" /> -->
-          <text-input v-model="form.commission_rate" :error="form.errors.commission_rate" class="pb-8 pr-6 w-full lg:w-1/2" label="分潤成數(%)" />
+          <text-input v-model="form.commission_rate" :error="form.errors.commission_rate" class="pb-8 pr-6 w-full lg:w-1/2" label="佣金成數(%)" />
           <text-input v-model="form.phone" :error="form.errors.phone" class="pb-8 pr-6 w-full lg:w-1/2" label="市內電話" />
           <text-input v-model="form.mobile" :error="form.errors.mobile" class="pb-8 pr-6 w-full lg:w-1/2" label="行動電話" />
           <text-input v-model="form.email" :error="form.errors.email" class="pb-8 pr-6 w-full lg:w-1/2" label="電子郵件" />

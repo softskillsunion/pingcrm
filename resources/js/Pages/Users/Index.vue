@@ -27,7 +27,7 @@
           <th class="pb-4 pt-6 px-6">姓名</th>
           <th class="pb-4 pt-6 px-6">行動電話</th>
           <th class="pb-4 pt-6 px-6">電子郵件</th>
-          <th class="pb-4 pt-6 px-6">分潤成數(%)</th>
+          <th class="pb-4 pt-6 px-6">佣金成數(%)</th>
           <th class="pb-4 pt-6 px-6">啟用</th>
           <th class="pb-4 pt-6 px-6" colspan="2">角色</th>
         </tr>
